@@ -1,5 +1,6 @@
 class Recipe {
-  constructor(title) {
-    
+  constructor(title, ingredients) {
+    this.title = title
+    this.ingredients = ingredients
   }
 }
