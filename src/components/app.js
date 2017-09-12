@@ -2,13 +2,15 @@ class App {
   constructor() {
     this.allergies = []
     this.recipes = new Recipes()
-    this.addEventListiners()
+    this.addEventListeners()
   }
 
-  addEventListiners(){
+  addEventListeners(){
     let allergyForm = document.getElementById('allergy-form')
-    allergyForm.addEventListiner('submit', (allergy)=>{
-      console.log(this)
+    allergyForm.addEventListener('submit', (allergy)=>{
+      allergy.preventDefault()
+      let input = document.getElementById('allergy-name')
+      this.allergies.push(input.value)
     })
   }
 
