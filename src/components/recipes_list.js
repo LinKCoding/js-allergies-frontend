@@ -2,25 +2,37 @@ class RecipeList {
   constructor() {
     this.recipes = []
     this.allergies = []
-    this.adapter = new RecipesAdapter
+    this.adapter = new RecipesAdapter()
     this.addEventListeners()
   }
 
 
   addEventListeners(){
-    let form = document.getElementById('recipe-form')
+    let recipeForm = document.getElementById('recipe-form')
     let allergyForm = document.getElementById('allergy-form')
-
+    this.allergies = []
     allergyForm.addEventListener('submit', (allergy)=>{
       allergy.preventDefault()
-      let input = document.getElementById('allergy-name')
-      this.allergies.push(input.value)
-    })
+      let commonAllergies = document.querySelectorAll('.allergy-checkbox:checked')
+      if (commonAllergies.length > 0) {
+        commonAllergies.forEach(allergy => {
+          this.allergies.push(allergy.value)
+        })
+      }
 
-    form.addEventListener('submit', (e)=>{
-      e.preventDefault()
+      let input = document.getElementById('allergy-name')
+      if (input.value) {
+        input.value.split(", ").forEach(customAllergy =>{
+          customAllergy = customAllergy.charAt(0).toUpperCase() + customAllergy.slice(1);
+          if(customAllergy){
+            this.allergies.push(customAllergy)
+          }
+        })
+      }
       this.callApiAndCreateRecipes()
     })
+
+
   }
 
   callApiAndCreateRecipes(){
@@ -31,9 +43,7 @@ class RecipeList {
         let safeRecipe = new Recipe(recipe.title, recipe.ingredients)
         this.recipes.push(safeRecipe)
       }
-
     }))
-
+    console.log(this.recipes);
   }
-
 }
