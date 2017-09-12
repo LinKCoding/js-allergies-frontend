@@ -1,7 +1,7 @@
 class App {
   constructor() {
     this.allergies = []
-    this.recipes = new Recipes()
+    this.recipeList = new Recipes
     this.addEventListeners()
   }
 
@@ -12,6 +12,10 @@ class App {
       let input = document.getElementById('allergy-name')
       this.allergies.push(input.value)
     })
+  }
+
+  filterRecipes(){
+
   }
 
 
