@@ -34,21 +34,29 @@ class RecipeList {
 
   callApiAndCreateRecipes(){
     this.recipes = []
+    let allergyToggle = false
     let recipeInput = document.getElementById('recipe-name')
     let searchTerm = recipeInput.value
+
     this.adapter.getRecipes().then(data => {
       data.forEach(recipe =>{
         recipe.title = recipe.title.charAt(0).toUpperCase() + recipe.title.slice(1)
-        if (!recipe.ingredients.some(ingredient => this.allergies.includes(ingredient)) && recipe.title.includes(searchTerm)) {
-          let safeRecipe = new Recipe(recipe.title, recipe.ingredients)
+        recipe.ingredients.some(ingredient => {
+          allergies.forEach((allergy)=>{
+            if(ingredient.includes(allergy)){
+              allergySwitch = true
+            }
+          })
+          return allergyToggle
+        })
+        if (allergyToggle === false && recipe.title.toLowerCase().includes(searchTerm.downcase)) {
+          //refactor?
+          let safeRecipe = new Recipe(recipe.title, recipe.ingredients, recipe.directions)
           this.recipes.push(safeRecipe)
         }
       })
-
       this.renderAll()
-      
-      })
-
+    })
   }
 
   renderAll(){
