@@ -21,7 +21,6 @@ class RecipeList {
       let allergyInput = document.getElementById('allergy-name')
       if (allergyInput.value) {
         allergyInput.value.split(", ").forEach(customAllergy =>{
-          customAllergy = customAllergy.charAt(0).toUpperCase() + customAllergy.slice(1)
           if(customAllergy){
             this.allergies.push(customAllergy)
           }
@@ -42,15 +41,13 @@ class RecipeList {
       data.forEach(recipe =>{
         recipe.title = recipe.title.charAt(0).toUpperCase() + recipe.title.slice(1)
         recipe.ingredients.some(ingredient => {
-          allergies.forEach((allergy)=>{
-            if(ingredient.includes(allergy)){
-              allergySwitch = true
+          this.allergies.forEach((allergy)=>{
+            if(ingredient.toLowerCase().includes(allergy.toLowerCase())){
+              allergyToggle = true
             }
           })
-          return allergyToggle
         })
-        if (allergyToggle === false && recipe.title.toLowerCase().includes(searchTerm.downcase)) {
-          //refactor?
+        if (allergyToggle === false && recipe.title.toLowerCase().includes(searchTerm.toLowerCase())) {
           let safeRecipe = new Recipe(recipe.title, recipe.ingredients, recipe.directions)
           this.recipes.push(safeRecipe)
         }
@@ -60,8 +57,6 @@ class RecipeList {
   }
 
   renderAll(){
-    console.log("connected")
-    console.log(this.recipes)
     let recipeList = document.getElementById('recipe-list')
     recipeList.innerHTML = ""
     this.recipes.map((recipe) => {
