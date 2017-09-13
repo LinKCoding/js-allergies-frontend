@@ -36,14 +36,18 @@ class RecipeList {
   }
 
   callApiAndCreateRecipes(){
-    this.adapter.getRecipes().then(data => data.forEach(recipe =>{
+    // this.allergies = this.allergies.reduce((a, b) => {
+    //   return a.concat(b);
+    // })
 
+    this.adapter.getRecipes().then(data => data.forEach(recipe =>{
       if (!recipe.ingredients.some(ingredient => this.allergies.includes(ingredient))) {
           //what does this refer to?
         let safeRecipe = new Recipe(recipe.title, recipe.ingredients)
         this.recipes.push(safeRecipe)
       }
+
     }))
-    console.log(this.recipes);
+
   }
 }
