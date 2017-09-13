@@ -48,6 +48,7 @@ class RecipeList {
           })
         })
         if (allergyToggle === false && recipe.title.toLowerCase().includes(searchTerm.toLowerCase())) {
+
           let safeRecipe = new Recipe(recipe.title, recipe.ingredients, recipe.directions)
           this.recipes.push(safeRecipe)
         }
@@ -57,10 +58,9 @@ class RecipeList {
   }
 
   renderAll(){
-    let recipeList = document.getElementById('recipe-list')
-    recipeList.innerHTML = ""
+    let cardContainer = document.getElementById('card container')
     this.recipes.map((recipe) => {
-      recipeList.innerHTML+= recipe.render()
+      cardContainer.innerHTML += recipe.render()
     })
   }
 
