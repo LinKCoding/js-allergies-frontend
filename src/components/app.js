@@ -4,9 +4,7 @@ class App {
   }
 
 
-  filterRecipes(){
-
-  }
+  
 
 
 }

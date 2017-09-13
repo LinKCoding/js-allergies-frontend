@@ -8,9 +8,8 @@ class RecipeList {
 
 
   addEventListeners(){
-    let recipeForm = document.getElementById('recipe-form')
-    let allergyForm = document.getElementById('allergy-form')
-    allergyForm.addEventListener('submit', (allergy)=>{
+    let allergyRecipeForm = document.getElementById('allergy-recipe-form')
+    allergyRecipeForm.addEventListener('submit', (allergy)=>{
       allergy.preventDefault()
       let commonAllergies = document.querySelectorAll('.allergy-checkbox:checked')
       if (commonAllergies.length > 0) {
@@ -19,10 +18,10 @@ class RecipeList {
         })
       }
 
-      let input = document.getElementById('allergy-name')
-      if (input.value) {
-        input.value.split(", ").forEach(customAllergy =>{
-          customAllergy = customAllergy.charAt(0).toUpperCase() + customAllergy.slice(1);
+      let allergyInput = document.getElementById('allergy-name')
+      if (allergyInput.value) {
+        allergyInput.value.split(", ").forEach(customAllergy =>{
+          customAllergy = customAllergy.charAt(0).toUpperCase() + customAllergy.slice(1)
           if(customAllergy){
             this.allergies.push(customAllergy)
           }
@@ -31,24 +30,35 @@ class RecipeList {
       this.callApiAndCreateRecipes()
     })
 
-
   }
 
   callApiAndCreateRecipes(){
-    // this.allergies = this.allergies.reduce((a, b) => {
-    //   return a.concat(b);
-    // })
+    this.recipes = []
+    let recipeInput = document.getElementById('recipe-name')
+    let searchTerm = recipeInput.value
+    this.adapter.getRecipes().then(data => {
+      data.forEach(recipe =>{
+        recipe.title = recipe.title.charAt(0).toUpperCase() + recipe.title.slice(1)
+        if (!recipe.ingredients.some(ingredient => this.allergies.includes(ingredient)) && recipe.title.includes(searchTerm)) {
+          let safeRecipe = new Recipe(recipe.title, recipe.ingredients)
+          this.recipes.push(safeRecipe)
+        }
+      })
 
+      this.renderAll()
+      
+      })
 
-    this.adapter.getRecipes().then(data => data.forEach(recipe =>{
-      if (!recipe.ingredients.some(ingredient => this.allergies.includes(ingredient))) {
-          //what does this refer to?
-        let safeRecipe = new Recipe(recipe.title, recipe.ingredients)
-        this.recipes.push(safeRecipe)
-      }
+  }
 
-    }))
-
+  renderAll(){
+    console.log("connected")
+    console.log(this.recipes)
+    let recipeList = document.getElementById('recipe-list')
+    recipeList.innerHTML = ""
+    this.recipes.map((recipe) => {
+      recipeList.innerHTML+= recipe.render()
+    })
   }
 
 
