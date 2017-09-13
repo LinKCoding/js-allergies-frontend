@@ -10,7 +10,6 @@ class RecipeList {
   addEventListeners(){
     let recipeForm = document.getElementById('recipe-form')
     let allergyForm = document.getElementById('allergy-form')
-    this.allergies = []
     allergyForm.addEventListener('submit', (allergy)=>{
       allergy.preventDefault()
       let commonAllergies = document.querySelectorAll('.allergy-checkbox:checked')
@@ -40,6 +39,7 @@ class RecipeList {
     //   return a.concat(b);
     // })
 
+
     this.adapter.getRecipes().then(data => data.forEach(recipe =>{
       if (!recipe.ingredients.some(ingredient => this.allergies.includes(ingredient))) {
           //what does this refer to?
@@ -50,4 +50,6 @@ class RecipeList {
     }))
 
   }
+
+
 }
