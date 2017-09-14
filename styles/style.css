@@ -1,10 +1,10 @@
 .card_padding {
   padding-left: 5%;
   padding-right: 5%;
+  padding-top: 5%
 }
 
 p{
-  padding: 2px 5px;
   white-space: nowrap;
   overflow: hidden;
 }
@@ -17,5 +17,4 @@ p{
   font-size: 72px;
   text-align: center;
   color: red;
-  outline-color: white;
 }

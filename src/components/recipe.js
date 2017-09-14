@@ -16,17 +16,17 @@ class Recipe {
   listOutDirections(directions){
     const directionArray = directions.join().split('. ')
     let listed = directionArray.map(direction =>{
-      return `<div><p class="overflow-ellipsis" style="overflow-y:auto;white-space:nowrap;">${direction}</p></div>`
+      return `<div><p class="overflow-ellipsis">${direction}</p></div>`
     })
     return listed.join(' ')
   }
 
   render(){
     return `
-      <div class="four wide column">
-        <div class="ui card">
+      <div class="three wide column">
+        <div class="fluid red ui card">
           <div class="content">
-            <div class="ui red header">${this.title}</div>
+            <div class="ui centered red header">${this.title}</div>
           </div>
           <div class="extra content">
             <div class="ui slide masked reveal description">
