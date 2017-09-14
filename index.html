@@ -42,22 +42,26 @@
           </div> <br>
           <input type="text" name="allergy" id="allergy-name">
           <br />
-          <label for="Search for Recipe">Search for Recipe</label>
-          <input type="text" id="recipe-name" name="recipe">
-          <input type="submit" value="Find Recipes">
+          <label for="recipe-name"></label>
+          <div class="ui fluid action center aligned input" style="padding-right: 30em; padding-left: 30em;">
+            <input type="text" id="recipe-name" name="recipe" placeholder="Find Recipe For...">
+            <button class="red ui button">Find Recipe</button>
+          </div>
         </form>
       </div>
       <br />
       <br>
       <div class="card_padding">
         <div id="card container" class="ui grid">
+
         </div>
       </div>
     <script
   src="https://code.jquery.com/jquery-3.1.1.min.js"
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"></script>
-    <script src="semantic/Semantic-UI-CSS/semantic.min.js"></script>
+  <script src="src/components/allergy.js" charset="utf-8"></script>
+  <script src="semantic/Semantic-UI-CSS/semantic.min.js"></script>
     <script src="semantic/Semantic-UI-CSS/semantic.js" charset="utf-8"></script>
     <script src="src/adapters/recipesAdapter.js" charset="utf-8"></script>
     <script src="src/components/recipe.js" charset="utf-8"></script>
