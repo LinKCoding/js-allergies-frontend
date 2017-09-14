@@ -67,6 +67,9 @@ class RecipeList {
 
   renderAll(){
     let cardContainer = document.getElementById('card container')
+    while(cardContainer.hasChildNodes()) {
+      cardContainer.removeChild(cardContainer.childNodes[0])
+    }
     this.recipes.map((recipe) => {
       let el = document.createElement('div')
       el.innerHTML = recipe.render()
