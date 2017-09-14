@@ -3,35 +3,38 @@ class RecipeList {
     this.recipes = []
     this.allergies = []
     this.adapter = new RecipesAdapter()
-    this.addEventListeners()
+    this.selectAndAddEventListeners()
   }
 
 
-  addEventListeners(){
-    let allergyRecipeForm = document.getElementById('allergy-recipe-form')
-    let loader = document.getElementById('recipe-loader')
+  selectAndAddEventListeners(){
+    const allergyRecipeForm = document.getElementById('allergy-recipe-form')
+    const loader = document.getElementById('recipe-loader')
     allergyRecipeForm.addEventListener('submit', (allergy)=>{
       allergy.preventDefault()
-      let commonAllergies = document.querySelectorAll('.allergy-checkbox:checked')
-      if (commonAllergies.length > 0) {
-        commonAllergies.forEach(allergy => {
-          let name = allergy.value.toLowerCase()
-          this.allergies = this.allergies.concat(ALLERGEN[name])
-        })
-      }
-
-
-      let allergyInput = document.getElementById('allergy-name')
-      if (allergyInput.value) {
-        allergyInput.value.split(", ").forEach(customAllergy =>{
-          if(customAllergy){
-            this.allergies.push(customAllergy)
-          }
-        })
-      }
+      this.populateAllergens()
       this.callApiAndCreateRecipes()
+      console.log(this.allergies);
     })
+  }
 
+  populateAllergens(){
+    this.allergies = []
+    const commonAllergies = document.querySelectorAll('.allergy-checkbox:checked')
+    if (commonAllergies.length > 0) {
+      commonAllergies.forEach(allergy => {
+        let name = allergy.value
+        this.allergies = this.allergies.concat(ALLERGEN[name])
+      })
+    }
+    const allergyInput = document.getElementById('allergy-name')
+    if (allergyInput.value) {
+      allergyInput.value.split(", ").forEach(customAllergy =>{
+        if(customAllergy){
+          this.allergies.push(customAllergy)
+        }
+      })
+    }
   }
 
   callApiAndCreateRecipes(){
@@ -74,5 +77,6 @@ class RecipeList {
       cardContainer.appendChild(el)
     })
   }
+
 
 }
