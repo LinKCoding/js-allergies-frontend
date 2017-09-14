@@ -1,4 +1,4 @@
-const allergy = {
+const ALLERGEN = {
   dairy: ["Butter", "Cheese", "Cream", "Milk", "Yogurt", "Ice cream", "Pudding"],
   treeNuts: ["Almond", "Almond paste", "Butternut", "Caponata", "Cashew", "Chinquapin", "Coconut", "Filbert", "Gianduja", "Hazelnut", "Heartnut", "Mandelonas", "Marzipan", "Nougat", "Nu-Nuts", "Nut meal", "Nutella ", "Nutmeat", "Nut paste", "Nut pieces", "Pecan", "Pistachio", "Pralines", "Sheanut", "Walnut", "Nut"],
   peanuts: ["Peanut"],

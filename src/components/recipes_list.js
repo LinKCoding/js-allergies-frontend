@@ -14,9 +14,11 @@ class RecipeList {
       let commonAllergies = document.querySelectorAll('.allergy-checkbox:checked')
       if (commonAllergies.length > 0) {
         commonAllergies.forEach(allergy => {
-          this.allergies.push(allergy.value)
+          let name = allergy.value.toLowerCase()
+          this.allergies = this.allergies.concat(ALLERGEN[name])
         })
       }
+
 
       let allergyInput = document.getElementById('allergy-name')
       if (allergyInput.value) {
@@ -38,13 +40,12 @@ class RecipeList {
 
     this.adapter.getRecipes().then(data => {
       this.recipes = []
-
       data.forEach(recipe =>{
         let allergyToggle = false
         recipe.title = recipe.title.charAt(0).toUpperCase() + recipe.title.slice(1)
         recipe.ingredients.some(ingredient => {
           this.allergies.forEach((allergy)=>{
-            if(ingredient.toLowerCase().includes(allergy.toLowerCase()) || recipe.title.toLowerCase().includes(allergy.toLowerCase()  )){
+            if(ingredient.toLowerCase().includes(allergy.toLowerCase()) || recipe.title.toLowerCase().includes(allergy.toLowerCase())){
               console.log(ingredient);
               console.log(allergy);
               console.log(this);
@@ -67,6 +68,7 @@ class RecipeList {
 
   renderAll(){
     let cardContainer = document.getElementById('card container')
+
     while(cardContainer.hasChildNodes()) {
       cardContainer.removeChild(cardContainer.childNodes[0])
     }
