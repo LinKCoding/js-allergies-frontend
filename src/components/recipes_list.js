@@ -56,27 +56,27 @@ class RecipeList {
           this.recipes.push(safeRecipe)
         }
       })
-      this.renderAll()
-
+      let loader = document.getElementById('recipe-loader')
+      loader.className = "ui active dimmer"
+      window.setTimeout(()=>{
+        this.renderAll()
+        loader.className = "ui disabled dimmer"
+      }, 2000)
 
     })
   }
 
   renderAll(){
     let cardContainer = document.getElementById('card container')
-    let loader = document.getElementById('recipe-loader')
-    loader.class = "ui active dimmer"
-
-
     while(cardContainer.hasChildNodes()) {
       cardContainer.removeChild(cardContainer.childNodes[0])
     }
+
     this.recipes.map((recipe) => {
       let el = document.createElement('div')
       el.innerHTML = recipe.render()
       cardContainer.appendChild(el)
     })
-    loader.class = "ui disabled dimmer"
   }
 
 
