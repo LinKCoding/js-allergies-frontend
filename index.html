@@ -12,14 +12,34 @@
     <div class="container">
       <div id="allergies-container">
         <form id="allergy-recipe-form">
-          <input type="checkbox" class="allergy-checkbox" name="allergy" value="Milk"> Milk <br>
-          <input type="checkbox" class="allergy-checkbox" name="allergy" value="Peanuts"> Peanuts <br>
-          <input type="checkbox" class="allergy-checkbox" name="allergy" value="Treenuts"> Nuts <br>
-          <input type="checkbox" class="allergy-checkbox" name="allergy" value="Soy"> Soy <br>
-          <input type="checkbox" class="allergy-checkbox" name="allergy" value="Gluten"> Gluten <br>
-          <input type="checkbox" class="allergy-checkbox" name="allergy" value="Fish"> Fish <br>
-          <input type="checkbox" class="allergy-checkbox" name="allergy" value="Shellfish"> Shellfish <br>
-          <label for="Custom Allergies">Custom Allergies</label>
+          <div class="ui toggle checkbox">
+            <input type="checkbox" class="allergy-checkbox" name="allergy" value="Milk">
+            <label>Milk</label>
+          </div>
+          <div class="ui red toggle checkbox">
+            <input type="checkbox" class="allergy-checkbox" name="allergy" value="Peanuts">
+            <label>Peanuts</label>
+          </div>
+          <div class="ui toggle checkbox">
+            <input type="checkbox" class="allergy-checkbox" name="allergy" value="Treenuts">
+            <label>Treenuts</label>
+          </div>
+          <div class="ui toggle checkbox">
+            <input type="checkbox" class="allergy-checkbox" name="allergy" value="Soy">
+            <label>Soy</label>
+          </div>
+          <div class="ui toggle checkbox">
+            <input type="checkbox" class="allergy-checkbox" name="allergy" value="Gluten">
+            <label>Gluten</label>
+          </div>
+          <div class="ui toggle checkbox">
+            <input type="checkbox" class="allergy-checkbox" name="allergy" value="Fish">
+            <label>Fish</label>
+          </div>
+          <div class="ui toggle checkbox">
+            <input type="checkbox" class="allergy-checkbox" name="allergy" value="Shellfish">
+            <label>Shellfish</label>
+          </div> <br>
           <input type="text" name="allergy" id="allergy-name">
           <br />
           <label for="recipe-name"></label>
