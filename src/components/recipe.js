@@ -5,15 +5,24 @@ class Recipe {
     this.directions = directions
   }
 
+
+  listOut(items){
+    items.map(item =>{
+      `<p>item</p>`
+    })
+  }
+
   render(){
     return `
     <div class="column">
     <div class="ui fluid slide masked reveal card">
       <div class="visible content">${this.title}</div>
-      <div class="hidden content">
-      ${this.ingredients}
+      <div class="content">
+      ${this.listOut(this.ingredients)}
       <br/>
-      ${this.directions}
+      <div class="hidden content">
+      ${this.listOut(this.directions)}
+      </div>
       </div>
     </div>
     <br />
@@ -22,4 +31,5 @@ class Recipe {
     //list out ingredients in list format
     //backside list out directions
   }
+
 }
