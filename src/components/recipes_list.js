@@ -32,18 +32,26 @@ class RecipeList {
   }
 
   callApiAndCreateRecipes(){
-    this.recipes = []
-    let allergyToggle = false
+    // let allergyToggle = false
     let recipeInput = document.getElementById('recipe-name')
     let searchTerm = recipeInput.value
 
     this.adapter.getRecipes().then(data => {
+      this.recipes = []
+
       data.forEach(recipe =>{
+        let allergyToggle = false
         recipe.title = recipe.title.charAt(0).toUpperCase() + recipe.title.slice(1)
         recipe.ingredients.some(ingredient => {
           this.allergies.forEach((allergy)=>{
-            if(ingredient.toLowerCase().includes(allergy.toLowerCase())){
+            if(ingredient.toLowerCase().includes(allergy.toLowerCase()) || recipe.title.toLowerCase().includes(allergy.toLowerCase()  )){
+              console.log(ingredient);
+              console.log(allergy);
+              console.log(this);
+
               allergyToggle = true
+
+              // debugger
             }
           })
         })
@@ -54,6 +62,7 @@ class RecipeList {
         }
       })
       this.renderAll()
+
     })
   }
 
