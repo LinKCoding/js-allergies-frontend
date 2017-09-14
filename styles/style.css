@@ -14,6 +14,8 @@ p{
 }
 
 .title_header{
+  font-size: 72px;
   text-align: center;
-  color: black;
+  color: red;
+  outline-color: white;
 }
