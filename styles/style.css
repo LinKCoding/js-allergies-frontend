@@ -2,3 +2,18 @@
   padding-left: 5%;
   padding-right: 5%;
 }
+
+p{
+  padding: 2px 5px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.overflow-ellipsis {
+  text-overflow: ellipsis;
+}
+
+.title_header{
+  text-align: center;
+  color: black;
+}
