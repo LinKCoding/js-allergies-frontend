@@ -9,6 +9,7 @@ class RecipeList {
 
   addEventListeners(){
     let allergyRecipeForm = document.getElementById('allergy-recipe-form')
+    let loader = document.getElementById('recipe-loader')
     allergyRecipeForm.addEventListener('submit', (allergy)=>{
       allergy.preventDefault()
       let commonAllergies = document.querySelectorAll('.allergy-checkbox:checked')
@@ -34,7 +35,6 @@ class RecipeList {
   }
 
   callApiAndCreateRecipes(){
-    // let allergyToggle = false
     let recipeInput = document.getElementById('recipe-name')
     let searchTerm = recipeInput.value
 
@@ -46,10 +46,6 @@ class RecipeList {
         recipe.ingredients.some(ingredient => {
           this.allergies.forEach((allergy)=>{
             if(ingredient.toLowerCase().includes(allergy.toLowerCase()) || recipe.title.toLowerCase().includes(allergy.toLowerCase())){
-              console.log(ingredient);
-              console.log(allergy);
-              console.log(this);
-
               allergyToggle = true
 
             }
