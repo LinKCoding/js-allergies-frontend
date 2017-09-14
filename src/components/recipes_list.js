@@ -78,5 +78,4 @@ class RecipeList {
     loader.class = "ui disabled dimmer"
   }
 
-
 }
