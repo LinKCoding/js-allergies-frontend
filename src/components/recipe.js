@@ -6,30 +6,35 @@ class Recipe {
   }
 
 
-  listOut(items){
-    items.map(item =>{
-      `<p>item</p>`
+  listOutIngredients(ingredients){
+    let listed = ingredients.map(ingredient =>{
+      return `<div>${ingredient}</div>`
     })
+    return listed.join(' ')
+  }
+
+  listOutDirections(directions){
+    const directionArray = directions.join().split('. ')
+    let listed = directionArray.map(direction =>{
+      return `<div>${direction}</div>`
+    })
+    return listed.join(' ')
   }
 
   render(){
     return `
-    <div class="column">
-    <div class="ui fluid slide masked reveal card">
-      <div class="visible content">${this.title}</div>
-      <div class="content">
-      ${this.listOut(this.ingredients)}
+      <div class="ui card">
+        <div class="content">
+          <div class="header">${this.title}</div>
+        </div>
+        <div class="ui slide masked reveal extra content">
+          <div class="visible content">${this.listOutIngredients(this.ingredients)}</div>
+          <div class="hidden content">${this.listOutDirections(this.directions)}</div>
+        </div>
+      </div>
       <br/>
-      <div class="hidden content">
-      ${this.listOut(this.directions)}
-      </div>
-      </div>
     </div>
-    <br />
     `
-    //use content divider
-    //list out ingredients in list format
-    //backside list out directions
   }
 
 }

@@ -51,7 +51,6 @@ class RecipeList {
 
               allergyToggle = true
 
-              // debugger
             }
           })
         })
@@ -69,7 +68,9 @@ class RecipeList {
   renderAll(){
     let cardContainer = document.getElementById('card container')
     this.recipes.map((recipe) => {
-      cardContainer.innerHTML += recipe.render()
+      let el = document.createElement('div')
+      el.innerHTML = recipe.render()
+      cardContainer.appendChild(el)
     })
   }
 
