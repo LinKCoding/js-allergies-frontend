@@ -67,6 +67,7 @@ class RecipeList {
     let loader = document.getElementById('recipe-loader')
     loader.class = "ui active dimmer"
 
+
     while(cardContainer.hasChildNodes()) {
       cardContainer.removeChild(cardContainer.childNodes[0])
     }
@@ -77,5 +78,6 @@ class RecipeList {
     })
     loader.class = "ui disabled dimmer"
   }
+
 
 }
