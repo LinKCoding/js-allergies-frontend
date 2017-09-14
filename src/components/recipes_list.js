@@ -6,10 +6,10 @@ class RecipeList {
     this.selectAndAddEventListeners()
   }
 
-
   selectAndAddEventListeners(){
     const allergyRecipeForm = document.getElementById('allergy-recipe-form')
     const loader = document.getElementById('recipe-loader')
+
     allergyRecipeForm.addEventListener('submit', (allergy)=>{
       allergy.preventDefault()
       this.populateAllergens()
@@ -62,11 +62,15 @@ class RecipeList {
       })
       this.renderAll()
 
+
     })
   }
 
   renderAll(){
     let cardContainer = document.getElementById('card container')
+    let loader = document.getElementById('recipe-loader')
+    loader.class = "ui active dimmer"
+
 
     while(cardContainer.hasChildNodes()) {
       cardContainer.removeChild(cardContainer.childNodes[0])
@@ -76,6 +80,7 @@ class RecipeList {
       el.innerHTML = recipe.render()
       cardContainer.appendChild(el)
     })
+    loader.class = "ui disabled dimmer"
   }
 
 

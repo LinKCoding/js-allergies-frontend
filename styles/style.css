@@ -18,3 +18,8 @@ p{
   text-align: center;
   color: red;
 }
+
+.check-container{
+  padding-left: 5%;
+  padding-right: 5%;
+}
