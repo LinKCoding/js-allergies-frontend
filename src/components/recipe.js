@@ -8,7 +8,7 @@ class Recipe {
 
   listOutIngredients(ingredients){
     let listed = ingredients.map(ingredient =>{
-      return `<div>${ingredient}</div>`
+      return `<div><p class="overflow-ellipsis">${ingredient}</p></div>`
     })
     return listed.join(' ')
   }
@@ -16,7 +16,7 @@ class Recipe {
   listOutDirections(directions){
     const directionArray = directions.join().split('. ')
     let listed = directionArray.map(direction =>{
-      return `<div>${direction}</div>`
+      return `<div><p class="overflow-ellipsis" style="overflow-y:auto;white-space:nowrap;">${direction}</p></div>`
     })
     return listed.join(' ')
   }
@@ -26,7 +26,7 @@ class Recipe {
       <div class="four wide column">
         <div class="ui card">
           <div class="content">
-            <div class="header">${this.title}</div>
+            <div class="ui red header">${this.title}</div>
           </div>
           <div class="extra content">
             <div class="ui slide masked reveal description">
@@ -35,8 +35,9 @@ class Recipe {
             </div>
           </div>
         </div>
-        <br/>
       </div>
+    </div>
+    <br/>
     `
   }
 
