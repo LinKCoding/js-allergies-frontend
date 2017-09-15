@@ -2,6 +2,7 @@ class RecipeList {
   constructor() {
     this.recipes = []
     this.allergies = []
+    this.loadedRecipes = []
     this.adapter = new RecipesAdapter()
     this.selectAndAddEventListeners()
   }
@@ -14,7 +15,6 @@ class RecipeList {
       allergy.preventDefault()
       this.populateAllergens()
       this.callApiAndCreateRecipes()
-      console.log(this.allergies);
     })
   }
 
@@ -34,6 +34,7 @@ class RecipeList {
           this.allergies.push(customAllergy)
         }
       })
+      debugger
     }
   }
 
@@ -43,6 +44,7 @@ class RecipeList {
 
     this.adapter.getRecipes().then(data => {
       this.recipes = []
+      this.loadedRecipes = []
       data.forEach(recipe =>{
         let allergyToggle = false
         recipe.title = recipe.title.charAt(0).toUpperCase() + recipe.title.slice(1)
@@ -63,24 +65,62 @@ class RecipeList {
       let loader = document.getElementById('recipe-loader')
       loader.className = "ui active dimmer"
       window.setTimeout(()=>{
-        this.renderAll()
+        this.setCards()
         loader.className = "ui disabled dimmer"
       }, 2000)
 
     })
   }
 
-  renderAll(){
+
+  setCards(){
     let cardContainer = document.getElementById('card container')
     while(cardContainer.hasChildNodes()) {
       cardContainer.removeChild(cardContainer.childNodes[0])
     }
 
-    this.recipes.map((recipe) => {
+    let buttonContainer = document.getElementById('button container')
+    while(buttonContainer.hasChildNodes()) {
+      buttonContainer.removeChild(buttonContainer.childNodes[0])
+    }
+
+      if (this.recipes.length >= 4) {
+        for (let i = 0; i < 4; i++) {
+          this.loadedRecipes.push(this.recipes.pop())
+        }
+        this.loadRecipes()
+      }else if (this.recipes.length === 0 && this.loadedRecipes === 0) {
+        cardContainer.innerHTML = "No Recipes Found!"
+      }else {
+        for (let i = 0; i < this.recipes.length; i++) {
+          this.loadedRecipes.push(this.recipes.pop())
+        }
+        this.loadRecipes()
+      }
+  }
+
+  loadRecipes(){
+    let cardContainer = document.getElementById('card container')
+    this.loadedRecipes.map((recipe) => {
       let el = document.createElement('div')
       el.innerHTML = recipe.render()
       cardContainer.appendChild(el)
     })
+    if (this.recipes.length > 0) {
+        this.addLoadButton()
+    }
+  }
+
+  addLoadButton(){
+    let loadMore = document.createElement('button')
+    let buttonContainer = document.getElementById('button container')
+
+    loadMore.className = "ui center aligned red button"
+    loadMore.innerHTML = "Load More"
+    loadMore.addEventListener('click', ()=>{
+      this.setCards()
+    })
+    buttonContainer.appendChild(loadMore)
   }
 
 

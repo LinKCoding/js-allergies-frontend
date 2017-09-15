@@ -23,16 +23,21 @@ class Recipe {
 
   render(){
     return `
-      <div class="three wide column">
-        <div class="fluid red ui card">
+      <div class="four wide column">
+        <div class="red ui card">
           <div class="content">
-            <div class="ui centered red header">${this.title}</div>
+            <div class="ui centered red header">
+            ${this.title}
+            </div>
           </div>
           <div class="extra content">
             <div class="ui slide masked reveal description">
               <div class="visible content">${this.listOutIngredients(this.ingredients)}</div>
               <div class="hidden content">${this.listOutDirections(this.directions)}</div>
             </div>
+          </div>
+          <div class="extra content">
+          <a href="http://lmgtfy.com/?q=${this.title}+recipe" target="_blank">Get Full Recipe</a>
           </div>
         </div>
       </div>

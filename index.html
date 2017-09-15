@@ -15,38 +15,38 @@
           <div class=check-container>
           <div class="ui toggle checkbox">
             <input type="checkbox" class="allergy-checkbox" name="allergy" value="dairy">
-            <label>Milk</label>
+            <label style="padding-right: .5em;">Milk</label>
           </div>
-          <div class="ui red toggle checkbox">
+          <div class="ui toggle checkbox">
             <input type="checkbox" class="allergy-checkbox" name="allergy" value="peanuts">
-            <label>Peanuts</label>
+            <label style="padding-right: .5em;">Peanuts</label>
           </div>
           <div class="ui toggle checkbox">
             <input type="checkbox" class="allergy-checkbox" name="allergy" value="treenuts">
-            <label>Treenuts</label>
+            <label style="padding-right: .5em;">Treenuts</label>
           </div>
           <div class="ui toggle checkbox">
             <input type="checkbox" class="allergy-checkbox" name="allergy" value="soy">
-            <label>Soy</label>
+            <label style="padding-right: .5em;">Soy</label>
           </div>
           <div class="ui toggle checkbox">
             <input type="checkbox" class="allergy-checkbox" name="allergy" value="gluten">
-            <label>Gluten</label>
+            <label style="padding-right: .5em;">Gluten</label>
           </div>
           <div class="ui toggle checkbox">
             <input type="checkbox" class="allergy-checkbox" name="allergy" value="fish">
-            <label>Fish</label>
+            <label style="padding-right: .5em;">Fish</label>
           </div>
           <div class="ui toggle checkbox">
             <input type="checkbox" class="allergy-checkbox" name="allergy" value="shellfish">
-            <label>Shellfish</label>
+            <label style="padding-right: .5em;">Shellfish</label>
           </div>
           </div>
            <br />
            <br />
           <div class="ui fluid action center aligned input" style="padding-right: 40em; padding-left: 40em;">
             <input type="text" name="allergy" id="allergy-name">
-            <label class="ui left pointing label">Enter additional allergies here!</label>
+            <label class="red ui left pointing label">Enter additional allergies here!</label>
           </div>
           <br />
           <label for="recipe-name"></label>
@@ -65,6 +65,8 @@
       <div class="ui disabled dimmer" id="recipe-loader">
         <div class="ui indeterminate text loader">Preparing Recipes</div>
       </div>
+      <br />
+      <div id="button container" style="padding-right: 30em; padding-left: 30em;"></div>
     <script
   src="https://code.jquery.com/jquery-3.1.1.min.js"
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
