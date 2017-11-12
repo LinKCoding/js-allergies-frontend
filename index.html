@@ -5,12 +5,20 @@
     <link rel="stylesheet" type="text/css" href="semantic/Semantic-UI-CSS/semantic.css">
     <link rel="stylesheet" href="styles/style.css">
   </head>
-  <body id="body">
-    <div class="ui header">
+  <body id="body" class="ui grid">
+    <div class="one wide column">
+      <!-- provide wrapper -->
+    </div>
+
+    <div class="fourteen wide column">
+    <div class="ui raised segment">
       <h2 class="title_header">Recipe Finder</h2>
     </div>
-    <div class="container">
+
+<!-- Container for the recipes start  -->
+    <div class="ui segment">
       <div id="allergies-container">
+        <!-- Checkboxes for the recipes -->
         <form id="allergy-recipe-form">
           <div class=check-container>
           <div class="ui toggle checkbox">
@@ -42,18 +50,25 @@
             <label style="padding-right: .5em;">Shellfish</label>
           </div>
           </div>
+
+          <!-- End of Checkboxes  -->
            <br />
            <br />
+
+           <!-- Start of Custom Input -->
           <div class="ui fluid action center aligned input" style="padding-right: 40em; padding-left: 40em;">
             <input type="text" name="allergy" id="allergy-name">
             <label class="ui red left pointing label">Enter additional allergies here!</label>
           </div>
           <br />
+          <!-- End of Custom Input -->
+          <!-- Start of recipe name  -->
           <label for="recipe-name"></label>
           <div class="ui fluid action center aligned input" style="padding-right: 30em; padding-left: 30em;">
             <input type="text" id="recipe-name" name="recipe" placeholder="Find Recipe For...">
             <button class="red ui button">Find Recipe</button>
           </div>
+          <!-- End of recipe name and form in general -->
         </form>
       </div>
       <br />
@@ -79,5 +94,9 @@
     <script src="src/components/recipes_list.js" charset="utf-8"></script>
     <script src="src/components/app.js" charset="utf-8"></script>
     <script type="text/javascript" src="src/index.js"></script>
+    </div>
+    <div class="one wide column">
+      <!-- provide wrapper -->
+    </div>
   </body>
 </html>

@@ -4,7 +4,7 @@
   padding-top: 5%
 }
 
-p{
+p {
   white-space: nowrap;
   overflow: hidden;
 }
@@ -13,14 +13,18 @@ p{
   text-overflow: ellipsis;
 }
 
-.title_header{
+.title_header {
   font-size: 72px;
   text-align: center;
   color: red;
 }
 
-.check-container{
+.check-container {
   padding-left: 25%;
   padding-right: 20%;
   padding-top: 1%
+}
+
+#body {
+  padding: 3%;
 }
