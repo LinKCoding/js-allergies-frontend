@@ -42,6 +42,10 @@ p {
   max-height: 25em;
 }
 
+.ui.segment.main {
+  background-color: rgba(250, 250, 250, 0.85);
+}
+
 #title_header {
   font-size: 72px;
   font-family: 'Satisfy';
