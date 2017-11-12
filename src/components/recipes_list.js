@@ -83,14 +83,14 @@ class RecipeList {
       buttonContainer.removeChild(buttonContainer.childNodes[0])
     }
 
-      if (this.recipes.length >= 8) {
-        for (let i = 0; i < 8; i++) {
+      if (this.recipes.length >= 6) {
+        for (let i = 0; i < 6; i++) {
           this.loadedRecipes.push(this.recipes.pop())
         }
         this.loadRecipes()
-      }else if (this.recipes.length === 0 && this.loadedRecipes === 0) {
+      } else if (this.recipes.length === 0 && this.loadedRecipes === 0) {
         cardContainer.innerHTML = "No Recipes Found!"
-      }else {
+      } else {
         for (let i = 0; i < this.recipes.length; i++) {
           this.loadedRecipes.push(this.recipes.pop())
         }
@@ -102,6 +102,7 @@ class RecipeList {
     let cardContainer = document.getElementById('card container')
     this.loadedRecipes.map((recipe) => {
       let el = document.createElement('div')
+      el.className = "five wide column"
       el.innerHTML = recipe.render()
       cardContainer.appendChild(el)
     })

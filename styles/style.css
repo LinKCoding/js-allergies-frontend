@@ -1,23 +1,15 @@
+#body {
+  padding: 3%;
+  background-image: url("../images/background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
 .card_padding {
   padding-left: 5%;
   padding-right: 5%;
   padding-top: 5%
-}
-
-p {
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.overflow-ellipsis {
-  text-overflow: ellipsis;
-}
-
-#title_header {
-  font-size: 72px;
-  font-family: 'Satisfy';
-  text-align: center;
-  color: red;
 }
 
 .check-container {
@@ -26,10 +18,33 @@ p {
   padding-top: 1%
 }
 
-#body {
-  padding: 3%;
-  background-image: url("../images/background.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center; 
+#find {
+  font-family: 'Satisfy';
+}
+
+.main.extra.content {
+  display: block;
+  height: 23em;
+  overflow: auto;
+}
+
+.overflow-ellipsis {
+  text-overflow: auto;
+}
+
+p {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.red.ui.card {
+  min-height: 25em;
+  max-height: 25em;
+}
+
+#title_header {
+  font-size: 72px;
+  font-family: 'Satisfy';
+  text-align: center;
+  color: red;
 }

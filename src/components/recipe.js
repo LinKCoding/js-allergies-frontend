@@ -23,14 +23,13 @@ class Recipe {
 
   render(){
     return `
-      <div class="four wide column">
         <div class="red ui card">
           <div class="content">
             <div class="ui centered red header">
             ${this.title}
             </div>
           </div>
-          <div class="extra content">
+          <div class="main extra content">
             <div class="ui slide masked reveal description">
               <div class="visible content">${this.listOutIngredients(this.ingredients)}</div>
               <div class="hidden content">${this.listOutDirections(this.directions)}</div>
@@ -41,8 +40,6 @@ class Recipe {
           </div>
         </div>
       </div>
-    </div>
-    <br/>
     `
   }
 
