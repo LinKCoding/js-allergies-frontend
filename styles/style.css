@@ -13,8 +13,9 @@ p {
   text-overflow: ellipsis;
 }
 
-.title_header {
+#title_header {
   font-size: 72px;
+  font-family: 'Satisfy';
   text-align: center;
   color: red;
 }
@@ -27,4 +28,8 @@ p {
 
 #body {
   padding: 3%;
+  background-image: url("../images/background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
 }

@@ -34,7 +34,6 @@ class RecipeList {
           this.allergies.push(customAllergy)
         }
       })
-      debugger
     }
   }
 

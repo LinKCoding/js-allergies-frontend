@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Recipe Finder</title>
+    <title>Re-Find</title>
+    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="semantic/Semantic-UI-CSS/semantic.css">
     <link rel="stylesheet" href="styles/style.css">
   </head>
@@ -11,64 +12,74 @@
     </div>
 
     <div class="fourteen wide column">
-    <div class="ui raised segment">
-      <h2 class="title_header">Recipe Finder</h2>
+    <div class="ui segment">
+      <h1 id="title_header">Re-Find</h1>
     </div>
 
 <!-- Container for the recipes start  -->
     <div class="ui segment">
-      <div id="allergies-container">
+      <div id="allergies-container" class="ui grid">
         <!-- Checkboxes for the recipes -->
-        <form id="allergy-recipe-form">
-          <div class=check-container>
-          <div class="ui toggle checkbox">
-            <input type="checkbox" class="allergy-checkbox" name="allergy" value="dairy">
-            <label style="padding-right: .5em;">Milk</label>
-          </div>
-          <div class="ui toggle checkbox">
-            <input type="checkbox" class="allergy-checkbox" name="allergy" value="peanuts">
-            <label style="padding-right: .5em;">Peanuts</label>
-          </div>
-          <div class="ui toggle checkbox">
-            <input type="checkbox" class="allergy-checkbox" name="allergy" value="treenuts">
-            <label style="padding-right: .5em;">Treenuts</label>
-          </div>
-          <div class="ui toggle checkbox">
-            <input type="checkbox" class="allergy-checkbox" name="allergy" value="soy">
-            <label style="padding-right: .5em;">Soy</label>
-          </div>
-          <div class="ui toggle checkbox">
-            <input type="checkbox" class="allergy-checkbox" name="allergy" value="gluten">
-            <label style="padding-right: .5em;">Gluten</label>
-          </div>
-          <div class="ui toggle checkbox">
-            <input type="checkbox" class="allergy-checkbox" name="allergy" value="fish">
-            <label style="padding-right: .5em;">Fish</label>
-          </div>
-          <div class="ui toggle checkbox">
-            <input type="checkbox" class="allergy-checkbox" name="allergy" value="shellfish">
-            <label style="padding-right: .5em;">Shellfish</label>
-          </div>
-          </div>
+          <form id="allergy-recipe-form" class="sixteen wide column">
+            <!-- Form grid -->
+            <div class="ui grid">
+              <div class="one wide column">
+                <!-- provide wrapper -->
+              </div>
+              <div class="fourteen wide column centered row">
+                <div id="check-container">
+                  <div class="ui toggle checkbox">
+                    <input type="checkbox" class="allergy-checkbox" name="allergy" value="dairy">
+                    <label>Milk</label>
+                  </div>
+                  <div class="ui toggle checkbox">
+                    <input type="checkbox" class="allergy-checkbox" name="allergy" value="peanuts">
+                    <label>Peanuts</label>
+                  </div>
+                  <div class="ui toggle checkbox">
+                    <input type="checkbox" class="allergy-checkbox" name="allergy" value="treenuts">
+                    <label>Treenuts</label>
+                  </div>
+                  <div class="ui toggle checkbox">
+                    <input type="checkbox" class="allergy-checkbox" name="allergy" value="soy">
+                    <label>Soy</label>
+                  </div>
+                  <div class="ui toggle checkbox">
+                    <input type="checkbox" class="allergy-checkbox" name="allergy" value="gluten">
+                    <label>Gluten</label>
+                  </div>
+                  <div class="ui toggle checkbox">
+                    <input type="checkbox" class="allergy-checkbox" name="allergy" value="fish">
+                    <label>Fish</label>
+                  </div>
+                  <div class="ui toggle checkbox">
+                    <input type="checkbox" class="allergy-checkbox" name="allergy" value="shellfish">
+                    <label>Shellfish</label>
+                  </div>
+                </div>
+              <!-- End of Checkboxes  -->
+               <br />
 
-          <!-- End of Checkboxes  -->
-           <br />
-           <br />
-
-           <!-- Start of Custom Input -->
-          <div class="ui fluid action center aligned input" style="padding-right: 40em; padding-left: 40em;">
-            <input type="text" name="allergy" id="allergy-name">
-            <label class="ui red left pointing label">Enter additional allergies here!</label>
+               <!-- Start of Custom Input -->
+              <div class="ui fluid center input" style="padding: 0 5% 0 5%">
+                <input type="text" name="allergy" id="allergy-name" placeholder="Add any additional allergies...(e.g. strawberry, apple)">
+              </div>
+              <br />
+              <!-- End of Custom Input -->
+              <!-- Start of recipe name  -->
+              <label for="recipe-name"></label>
+              <div class="ui fluid center aligned input" style="padding: 0 5% 0 5%">
+                <input type="text" id="recipe-name" name="recipe" placeholder="Find Recipe For...">
+                <button class="red ui button">Find Recipe</button>
+              </div>
+            <!-- End of recipe name and form in general -->
+            <!-- End of form content -->
+            </div>
+            <div class="one wide column">
+              <!-- provide wrapper -->
+            </div>
           </div>
-          <br />
-          <!-- End of Custom Input -->
-          <!-- Start of recipe name  -->
-          <label for="recipe-name"></label>
-          <div class="ui fluid action center aligned input" style="padding-right: 30em; padding-left: 30em;">
-            <input type="text" id="recipe-name" name="recipe" placeholder="Find Recipe For...">
-            <button class="red ui button">Find Recipe</button>
-          </div>
-          <!-- End of recipe name and form in general -->
+          <!-- End of Form Grid -->
         </form>
       </div>
       <br />
