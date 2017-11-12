@@ -37,7 +37,7 @@ class Recipe {
             </div>
           </div>
           <div class="extra content">
-          <a href="http://lmgtfy.com/?q=${this.title}+recipe" target="_blank">Get Full Recipe</a>
+          <a href='http://lmgtfy.com/?q=${this.title + 'Recipe'}' target="_blank">Get Full Recipe</a>
           </div>
         </div>
       </div>

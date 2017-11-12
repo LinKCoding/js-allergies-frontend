@@ -84,8 +84,8 @@ class RecipeList {
       buttonContainer.removeChild(buttonContainer.childNodes[0])
     }
 
-      if (this.recipes.length >= 4) {
-        for (let i = 0; i < 4; i++) {
+      if (this.recipes.length >= 8) {
+        for (let i = 0; i < 8; i++) {
           this.loadedRecipes.push(this.recipes.pop())
         }
         this.loadRecipes()
