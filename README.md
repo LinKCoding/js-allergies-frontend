@@ -1,6 +1,6 @@
 # Recipe Finder
 
-Recipe Finder, or Re-Find is a vanilla JavaScript frontend providing recipes that are allergy safe for users. Users have access to 2,500 recipes at their disposal in the backend repository. Users can also change how many recipes they choose to filter through by changing the seed file in https://github.com/LinKCoding/allergies-backend. 
+Recipe Finder, or Re-Find, is a vanilla JavaScript frontend providing recipes that are allergy safe for users. Users have access to 2,500 recipes at their disposal in the backend repository. Users can also change how many recipes they choose to filter through by changing the seed file in https://github.com/LinKCoding/allergies-backend. 
 
 ## Getting Started
 
