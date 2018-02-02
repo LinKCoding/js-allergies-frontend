@@ -89,9 +89,7 @@ class RecipeList {
       } else if (this.recipes.length === 0 && this.loadedRecipes === 0) {
         cardContainer.innerHTML = "No Recipes Found!"
       } else {
-        for (let i = 0; i < this.recipes.length; i++) {
-          this.loadedRecipes.push(this.recipes.pop())
-        }
+        this.loadedRecipes = [...this.loadedRecipes, ...this.recipes.splice(0, this.recipes.length)]
         this.loadRecipes()
       }
   }
