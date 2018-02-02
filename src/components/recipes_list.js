@@ -112,7 +112,7 @@ class RecipeList {
     let buttonContainer = document.getElementById('button container')
 
     loadMore.className = "ui center aligned red button"
-    loadMore.innerHTML = "Load More"
+    loadMore.innerHTML = `Load More (${this.recipes.length} more!)`
     loadMore.addEventListener('click', ()=>{
       this.setCards()
     })
