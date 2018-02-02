@@ -84,9 +84,7 @@ class RecipeList {
     }
 
       if (this.recipes.length >= 6) {
-        for (let i = 0; i < 6; i++) {
-          this.loadedRecipes.push(this.recipes.pop())
-        }
+        this.loadedRecipes = [...this.loadedRecipes, ...this.recipes.splice(0, 6)]
         this.loadRecipes()
       } else if (this.recipes.length === 0 && this.loadedRecipes === 0) {
         cardContainer.innerHTML = "No Recipes Found!"
