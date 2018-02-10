@@ -51,12 +51,10 @@ class RecipeList {
           this.allergies.forEach((allergy)=>{
             if(ingredient.toLowerCase().includes(allergy.toLowerCase()) || recipe.title.toLowerCase().includes(allergy.toLowerCase())){
               allergyToggle = true
-
             }
           })
         })
         if (allergyToggle === false && recipe.title.toLowerCase().includes(searchTerm.toLowerCase())) {
-
           let safeRecipe = new Recipe(recipe.title, recipe.ingredients, recipe.directions)
           this.recipes.push(safeRecipe)
         }
@@ -92,6 +90,22 @@ class RecipeList {
       }
   }
 
+  setAllCards(){
+    let cardContainer = document.getElementById('card container')
+    while(cardContainer.hasChildNodes()) {
+      cardContainer.removeChild(cardContainer.childNodes[0])
+    }
+
+    let buttonContainer = document.getElementById('button container')
+    while(buttonContainer.hasChildNodes()) {
+      buttonContainer.removeChild(buttonContainer.childNodes[0])
+    }
+    if(this.recipes.length){
+      this.loadedRecipes = [...this.recipes.splice(0, this.recipes.length)]
+      this.loadRecipes()
+    }
+  }
+
   loadRecipes(){
     let cardContainer = document.getElementById('card container')
     this.loadedRecipes.map((recipe) => {
@@ -125,7 +139,7 @@ class RecipeList {
     loadAll.className = "ui center aligned red button"
     loadAll.innerHTML = 'Load all recipes!'
     loadAll.addEventListener('click', ()=>{
-      this.setCards()
+      this.setAllCards()
     })
     buttonContainer.appendChild(loadAll)
   }
