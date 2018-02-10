@@ -102,8 +102,8 @@ class RecipeList {
       el.innerHTML = recipe.render()
       cardContainer.appendChild(el)
     })
-    if (this.recipes.length > 0) {
-        this.addLoadButton()
+    if(this.recipes.length > 0){
+      this.addLoadButton()
     }
   }
 
