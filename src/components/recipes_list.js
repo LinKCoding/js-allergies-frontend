@@ -125,7 +125,7 @@ class RecipeList {
     let buttonContainer = document.getElementById('button container')
 
     loadMore.className = "ui center aligned red button"
-    loadMore.innerHTML = `Load More (${this.recipes.length} more!)`
+    loadMore.innerHTML = `Gimme some more`
     loadMore.addEventListener('click', ()=>{
       this.setCards()
     })
@@ -137,7 +137,7 @@ class RecipeList {
     let buttonContainer = document.getElementById('button container')
 
     loadAll.className = "ui center aligned red button"
-    loadAll.innerHTML = 'Load all recipes!'
+    loadAll.innerHTML = `Load all ${this.recipes.length} recipes!`
     loadAll.addEventListener('click', ()=>{
       this.setAllCards()
     })
