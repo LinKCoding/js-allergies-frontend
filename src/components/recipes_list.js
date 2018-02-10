@@ -71,7 +71,6 @@ class RecipeList {
     })
   }
 
-
   setCards(){
     let cardContainer = document.getElementById('card container')
     while(cardContainer.hasChildNodes()) {
@@ -82,7 +81,6 @@ class RecipeList {
     while(buttonContainer.hasChildNodes()) {
       buttonContainer.removeChild(buttonContainer.childNodes[0])
     }
-
       if (this.recipes.length >= 6) {
         this.loadedRecipes = [...this.loadedRecipes, ...this.recipes.splice(0, 6)]
         this.loadRecipes()
@@ -104,6 +102,7 @@ class RecipeList {
     })
     if(this.recipes.length > 0){
       this.addLoadButton()
+      this.addLoadAllButton()
     }
   }
 
@@ -119,5 +118,15 @@ class RecipeList {
     buttonContainer.appendChild(loadMore)
   }
 
+  addLoadAllButton(){
+    let loadAll = document.createElement('button')
+    let buttonContainer = document.getElementById('button container')
 
+    loadAll.className = "ui center aligned red button"
+    loadAll.innerHTML = 'Load all recipes!'
+    loadAll.addEventListener('click', ()=>{
+      this.setCards()
+    })
+    buttonContainer.appendChild(loadAll)
+  }
 }
