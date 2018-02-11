@@ -95,7 +95,6 @@ class RecipeList {
     while(cardContainer.hasChildNodes()) {
       cardContainer.removeChild(cardContainer.childNodes[0])
     }
-
     let buttonContainer = document.getElementById('button container')
     while(buttonContainer.hasChildNodes()) {
       buttonContainer.removeChild(buttonContainer.childNodes[0])
@@ -125,7 +124,7 @@ class RecipeList {
     let buttonContainer = document.getElementById('button container')
 
     loadMore.className = "ui center aligned red button"
-    loadMore.innerHTML = `Gimme some more`
+    loadMore.innerHTML = `Load a few more`
     loadMore.addEventListener('click', ()=>{
       this.setCards()
     })
